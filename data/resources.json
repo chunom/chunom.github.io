@@ -1,0 +1,89 @@
+{
+  "categories": [
+    {
+      "id": "fonts",
+      "title": "Font downloads",
+      "description": "Install Chữ Nôm-capable fonts before reading older texts, rare characters, and CJK Extension glyphs.",
+      "items": [
+        {
+          "title": "Chunom.org Fonts for Chữ Nôm",
+          "url": "https://chunom.org/pages/fonts/",
+          "description": "A curated list of free CJKV fonts with Chữ Nôm coverage, including guidance on combining fonts for broader character support.",
+          "action": "Open font downloads",
+          "placeholder": false
+        },
+        {
+          "title": "Noto CJK Fonts",
+          "url": "https://github.com/notofonts/noto-cjk/releases",
+          "description": "Official Noto Sans CJK and Noto Serif CJK releases. Useful as modern fallback fonts for broad CJK coverage.",
+          "action": "Download from GitHub",
+          "placeholder": false
+        },
+        {
+          "title": "VietUnicode Hán-Nôm Fonts",
+          "url": "https://vietunicode.sourceforge.net/fonts/fonts_hannom.html",
+          "description": "Download page for the Han Nom A and Han Nom B font set, a longstanding option for Hán-Nôm text display.",
+          "action": "Download font set",
+          "placeholder": false
+        }
+      ]
+    },
+    {
+      "id": "dictionaries",
+      "title": "Dictionaries",
+      "description": "Lookup tools for checking readings, variants, and historical attestations.",
+      "items": [
+        {
+          "title": "Nôm Foundation Lookup Tool",
+          "url": "https://nomfoundation.org/nom-tools/Nom-Lookup-Tool",
+          "description": "A practical starting point for looking up Chữ Nôm characters and readings.",
+          "placeholder": false
+        },
+        {
+          "title": "Tự Điển Chữ Nôm Dẫn Giải",
+          "url": "https://chunom.org/pages/tdchunom.html",
+          "description": "An online dictionary interface for Chữ Nôm learners and researchers.",
+          "placeholder": false
+        }
+      ]
+    },
+    {
+      "id": "archives",
+      "title": "Digital archives",
+      "description": "Collections that help learners see Chữ Nôm in manuscripts, printed books, and scholarly contexts.",
+      "items": [
+        {
+          "title": "Nôm Foundation Digital Library",
+          "url": "https://nomfoundation.org/",
+          "description": "A gateway to digitized Hán-Nôm materials and preservation work.",
+          "placeholder": false
+        },
+        {
+          "title": "Columbia Hán-Nôm Special Collection",
+          "url": "https://library.columbia.edu/collections/han-nom.html",
+          "description": "A research library collection focused on Vietnamese Hán-Nôm texts.",
+          "placeholder": false
+        }
+      ]
+    },
+    {
+      "id": "guides",
+      "title": "Learning guides",
+      "description": "Background reading for understanding the writing system and building study habits.",
+      "items": [
+        {
+          "title": "Omniglot: Chữ Nôm",
+          "url": "https://www.omniglot.com/writing/chunom.htm",
+          "description": "A concise overview of the script with examples and external references.",
+          "placeholder": false
+        },
+        {
+          "title": "About Chữ Nôm",
+          "url": "/about/",
+          "description": "A beginner-friendly internal overview of the script, its background, and why it matters.",
+          "placeholder": false
+        }
+      ]
+    }
+  ]
+}

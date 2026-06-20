@@ -1,0 +1,25 @@
+{{ define "main" }}
+{{ $isPost := eq .Section "posts" }}
+<article class="page-shell">
+  <header class="page-hero page-hero-small">
+    <div class="container narrow reveal">
+      {{ with .Params.kicker }}<p class="eyebrow">{{ . }}</p>{{ end }}
+      <h1>{{ .Title }}</h1>
+      {{ with .Params.summary }}<p class="page-lede">{{ . }}</p>{{ end }}
+      {{ if $isPost }}{{ partial "post-meta.html" . }}{{ end }}
+    </div>
+  </header>
+  {{ if $isPost }}
+    {{ $thumbnail := partial "post-thumbnail.html" (dict "page" . "class" "post-hero-image" "loading" "eager" "fetchpriority" "high") }}
+    {{ with $thumbnail }}
+      <div class="container narrow post-hero-media reveal">
+        {{ . | safeHTML }}
+      </div>
+    {{ end }}
+  {{ end }}
+  <div class="container narrow article-body{{ if $isPost }} post-body{{ end }} reveal">
+    {{ .Content }}
+    {{ if $isPost }}{{ partial "post-share.html" . }}{{ end }}
+  </div>
+</article>
+{{ end }}

@@ -1,0 +1,7 @@
+{{- $href := .Get "href" -}}
+{{- $label := .Get "label" -}}
+{{- $style := .Get "style" | default "primary" -}}
+{{- $isExternal := strings.HasPrefix $href "http" -}}
+{{- $internalPath := strings.TrimPrefix "/" $href -}}
+{{- $url := cond $isExternal $href ($internalPath | relURL) -}}
+<a class="button {{ $style }}" href="{{ $url }}"{{ if $isExternal }} target="_blank" rel="noopener noreferrer"{{ end }}>{{ $label }}</a>

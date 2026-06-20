@@ -1,0 +1,28 @@
+{
+  "links": [
+    {
+      "name": "Reddit",
+      "url": "https://www.reddit.com/r/ChuNom/",
+      "label": "r/ChuNom",
+      "icon": "images/reddit.webp",
+      "description": "A public subreddit for Chữ Nôm discussion, questions, and resource sharing.",
+      "placeholder": false
+    },
+    {
+      "name": "Facebook",
+      "url": "https://www.facebook.com/",
+      "label": "Facebook page",
+      "icon": "images/facebook.webp",
+      "description": "Placeholder for a Facebook group or page maintained by the project.",
+      "placeholder": false
+    },
+    {
+      "name": "Discord",
+      "url": "https://discord.gg/example",
+      "label": "Discord invite",
+      "icon": "images/discord.webp",
+      "description": "Placeholder for a Discord server invite for learners and contributors.",
+      "placeholder": false
+    }
+  ]
+}

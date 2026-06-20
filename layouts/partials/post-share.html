@@ -1,0 +1,31 @@
+{{- $url := .Permalink -}}
+{{- $title := .Title -}}
+{{- $facebookIcon := resources.Get "images/facebook.webp" | fingerprint -}}
+{{- $redditIcon := resources.Get "images/reddit.webp" | fingerprint -}}
+<section class="post-share" aria-labelledby="post-share-title">
+  <h2 id="post-share-title">Share</h2>
+  <div class="share-links">
+    <a class="share-link" href="https://www.facebook.com/sharer/sharer.php?u={{ $url | urlquery }}" target="_blank" rel="noopener noreferrer">
+      <img class="share-icon" src="{{ $facebookIcon.RelPermalink }}" width="{{ $facebookIcon.Width }}" height="{{ $facebookIcon.Height }}" alt="" aria-hidden="true" loading="lazy" decoding="async">
+      <span>Facebook</span>
+    </a>
+    <a class="share-link" href="https://www.reddit.com/submit?url={{ $url | urlquery }}&title={{ $title | urlquery }}" target="_blank" rel="noopener noreferrer">
+      <img class="share-icon" src="{{ $redditIcon.RelPermalink }}" width="{{ $redditIcon.Width }}" height="{{ $redditIcon.Height }}" alt="" aria-hidden="true" loading="lazy" decoding="async">
+      <span>Reddit</span>
+    </a>
+    <a class="share-link" href="mailto:?subject={{ $title | urlquery }}&body={{ $url | urlquery }}">
+      <svg class="share-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <path d="M4 6h16v12H4z"></path>
+        <path d="m4 7 8 6 8-6"></path>
+      </svg>
+      <span>Email</span>
+    </a>
+    <button class="share-link share-copy" type="button" data-copy-url="{{ $url }}">
+      <svg class="share-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <rect x="8" y="8" width="11" height="11" rx="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy link</span>
+    </button>
+  </div>
+</section>

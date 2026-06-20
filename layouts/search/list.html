@@ -1,0 +1,29 @@
+{{ define "main" }}
+<section class="section">
+  <div class="container narrow">
+    <form class="search-panel reveal" action="{{ "search/" | relURL }}" method="get" role="search" data-search-form>
+      <div class="search-controls">
+        <div class="search-field">
+          <label for="site-search">Search</label>
+          <input id="site-search" name="q" type="search" autocomplete="off" placeholder="History or Vietnamese" data-search-input data-index-url="{{ "index.json" | relURL }}">
+        </div>
+        <div class="search-field">
+          <label for="search-scope">Search type</label>
+          <select id="search-scope" name="scope" data-search-scope>
+            <option value="post" selected>Posts</option>
+            <option value="resource">Resources</option>
+            <option value="all">All</option>
+          </select>
+        </div>
+      </div>
+    </form>
+    <p class="search-status" role="status" aria-live="polite" data-search-status>Loading search index...</p>
+    <div class="search-results" data-search-results></div>
+  </div>
+</section>
+{{ end }}
+
+{{ define "scripts" }}
+{{ $search := resources.Get "js/search.js" | minify | fingerprint }}
+<script src="{{ $search.RelPermalink }}" integrity="{{ $search.Data.Integrity }}" defer></script>
+{{ end }}

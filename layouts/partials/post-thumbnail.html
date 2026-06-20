@@ -1,0 +1,26 @@
+{{- $page := .page -}}
+{{- $class := .class | default "post-thumbnail" -}}
+{{- $loading := .loading | default "lazy" -}}
+{{- $fetchpriority := .fetchpriority -}}
+{{- with $page.Params.thumbnail -}}
+  {{- $src := . -}}
+  {{- $alt := $page.Params.thumbnail_alt | default "" -}}
+  {{- if strings.HasPrefix $src "http" -}}
+    <img class="{{ $class }}" src="{{ $src }}" alt="{{ $alt }}" loading="{{ $loading }}" decoding="async"{{ with $fetchpriority }} fetchpriority="{{ . }}"{{ end }}>
+  {{- else -}}
+    {{- $cleanSrc := strings.TrimPrefix "/" $src -}}
+    {{- $image := $page.Resources.GetMatch $src -}}
+    {{- if not $image -}}
+      {{- $image = resources.Get $cleanSrc -}}
+    {{- end -}}
+    {{- if $image -}}
+      {{- $isCard := in $class "post-card-image" -}}
+      {{- $small := $image.Fit "480x270 webp q76" | fingerprint -}}
+      {{- $large := cond $isCard ($image.Fit "720x405 webp q78" | fingerprint) ($image.Fit "1280x720 webp q82" | fingerprint) -}}
+      {{- $sizes := cond $isCard "(min-width: 981px) 360px, (min-width: 641px) 50vw, calc(100vw - 2rem)" "(min-width: 820px) 780px, calc(100vw - 2rem)" -}}
+      <img class="{{ $class }}" src="{{ $large.RelPermalink }}" srcset="{{ $small.RelPermalink }} {{ $small.Width }}w, {{ $large.RelPermalink }} {{ $large.Width }}w" sizes="{{ $sizes }}" width="{{ $large.Width }}" height="{{ $large.Height }}" alt="{{ $alt }}" loading="{{ $loading }}" decoding="async"{{ with $fetchpriority }} fetchpriority="{{ . }}"{{ end }}>
+    {{- else -}}
+      <img class="{{ $class }}" src="{{ $src | relURL }}" alt="{{ $alt }}" loading="{{ $loading }}" decoding="async"{{ with $fetchpriority }} fetchpriority="{{ . }}"{{ end }}>
+    {{- end -}}
+  {{- end -}}
+{{- end -}}

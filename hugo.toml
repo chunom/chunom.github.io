@@ -1,0 +1,45 @@
+baseURL = "https://chunom.github.io/"
+locale = "en-US"
+title = "Nom Zine"
+enableRobotsTXT = true
+disableKinds = ["taxonomy", "term"]
+summaryLength = 28
+capitalizeListTitles = false
+
+[pagination]
+pagerSize = 6
+
+[params]
+description = "Nom Zine introduces Chữ Nôm through clear explanations, curated resources, and community links."
+siteImage = "images/nom-practice-hero.png"
+author = "Nom Zine"
+
+[outputs]
+home = ["HTML", "RSS", "JSON"]
+section = ["HTML"]
+
+[outputFormats.JSON]
+mediaType = "application/json"
+baseName = "index"
+isPlainText = true
+notAlternative = true
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = false
+
+[[menus.main]]
+name = "About"
+pageRef = "/about"
+weight = 10
+
+[[menus.main]]
+name = "Posts"
+pageRef = "/posts"
+weight = 20
+
+[[menus.main]]
+name = "Resources"
+pageRef = "/resources"
+weight = 30

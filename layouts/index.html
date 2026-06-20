@@ -1,0 +1,101 @@
+{{ define "main" }}
+{{- $heroSmall := "" -}}
+{{- $heroLarge := "" -}}
+{{- with resources.Get "images/nom-practice-hero.png" -}}
+  {{- $heroSmall = (.Resize "960x webp q78" | fingerprint).RelPermalink -}}
+  {{- $heroLarge = (.Resize "1600x webp q82" | fingerprint).RelPermalink -}}
+{{- end -}}
+<section class="hero" style="--hero-image-small: url('{{ $heroSmall }}'); --hero-image: url('{{ $heroLarge }}');">
+  <span class="sr-only">Study desk with Chữ Nôm-inspired writing samples and reference materials.</span>
+  <div class="container hero-content">
+    <p class="eyebrow">Beginner-friendly Chữ Nôm study</p>
+    <h1>{{ site.Title }}</h1>
+    <p class="hero-lede">Explore Chữ Nôm through clear explanations, curated resources, and community links for learners.</p>
+    <div class="button-row">
+      <a class="button primary" href="{{ "resources/" | relURL }}">Explore Resources</a>
+      <a class="button secondary" href="{{ "about/" | relURL }}">About Chữ Nôm</a>
+    </div>
+  </div>
+</section>
+
+<section class="section-band">
+  <div class="container intro-grid">
+    <div class="section-heading reveal">
+      <p class="eyebrow">What is Chữ Nôm?</p>
+      <h2>A Vietnamese script shaped by literary history</h2>
+    </div>
+    <div class="prose reveal">
+      <p>Chữ Nôm is a historical writing system used to write Vietnamese with characters adapted from the broader Sinitic writing tradition. It appears in poetry, religious texts, stories, administrative traces, and local records.</p>
+      <p>Learning it today is less about nostalgia than access: it helps readers approach older Vietnamese voices, understand vocabulary layers, and see how scripts carry culture across time.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-heading reveal">
+      <h2>Posts</h2>
+    </div>
+    <div class="card-grid three post-grid">
+      {{ range first 3 (where site.RegularPages "Section" "posts") }}
+      <article class="post-card reveal">
+        {{ $post := . }}
+        {{ $thumbnail := partial "post-thumbnail.html" (dict "page" . "class" "post-card-image") }}
+        {{ with $thumbnail }}
+          <a class="post-card-media" href="{{ $post.RelPermalink }}" aria-hidden="true" tabindex="-1">{{ . | safeHTML }}</a>
+        {{ end }}
+        {{ partial "post-meta.html" . }}
+        <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+        <p>{{ .Summary | plainify }}</p>
+        <a class="text-link" href="{{ .RelPermalink }}">Read post</a>
+      </article>
+      {{ end }}
+    </div>
+    <div class="section-action reveal">
+      <a class="button secondary" href="{{ "posts/" | relURL }}">View all posts</a>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-heading reveal">
+      <h2>Resources</h2>
+    </div>
+    <div class="card-grid three">
+      {{ range first 3 hugo.Data.resources.categories }}
+      <article class="resource-card reveal">
+        <h3>{{ .title }}</h3>
+        <p>{{ .description }}</p>
+        <a class="text-link" href="{{ printf "resources/#%s" .id | relURL }}">View {{ .title | lower }}</a>
+      </article>
+      {{ end }}
+    </div>
+  </div>
+</section>
+
+<section class="section community-strip">
+  <div class="container community-grid">
+    <div class="community-social reveal">
+      <p class="eyebrow">Community</p>
+      <div class="social-list">
+        {{ range hugo.Data.social.links }}
+        <a class="social-link {{ if .placeholder }}is-placeholder{{ end }}" href="{{ .url }}" target="_blank" rel="noopener noreferrer">
+          {{ with .icon }}
+            {{ with resources.Get . }}
+              {{ $socialIcon := . | fingerprint }}
+              <img class="social-icon" src="{{ $socialIcon.RelPermalink }}" width="{{ $socialIcon.Width }}" height="{{ $socialIcon.Height }}" alt="" aria-hidden="true" loading="lazy" decoding="async">
+            {{ end }}
+          {{ end }}
+          <span class="social-copy">
+            <span>{{ .name }}</span>
+            <small>{{ .label }}</small>
+          </span>
+          <span class="social-action">{{ if .placeholder }}Placeholder{{ else }}Open{{ end }}</span>
+        </a>
+        {{ end }}
+      </div>
+    </div>
+  </div>
+</section>
+{{ end }}

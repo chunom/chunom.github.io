@@ -1,0 +1,59 @@
+<footer class="site-footer">
+  <div class="container footer-shell">
+    <div class="footer-grid">
+      <div class="footer-about">
+        <a class="brand footer-brand" href="{{ site.Home.RelPermalink }}" aria-label="{{ site.Title }} home">
+          {{ with resources.Get "images/icon.webp" }}
+            {{ $brandIcon := . | fingerprint }}
+            <img class="brand-mark" src="{{ $brandIcon.RelPermalink }}" width="{{ $brandIcon.Width }}" height="{{ $brandIcon.Height }}" alt="" aria-hidden="true" decoding="async">
+          {{ end }}
+          <span class="brand-text">{{ site.Title }}</span>
+        </a>
+        <p>A curious, independent web zine for Chữ Nôm notes, learner resources, and digital preservation links.</p>
+      </div>
+
+      <div class="footer-link-groups">
+        <nav class="footer-nav" aria-label="Footer navigation">
+          <h2>Site</h2>
+          {{ range site.Menus.main }}
+            <a href="{{ .URL | relURL }}">{{ .Name }}</a>
+          {{ end }}
+          <a href="{{ "search/" | relURL }}">Search</a>
+        </nav>
+
+        <nav class="footer-nav" aria-label="Resource shortcuts">
+          <h2>Resources</h2>
+          {{ range hugo.Data.resources.categories }}
+            <a href="{{ printf "resources/#%s" .id | relURL }}">{{ .title }}</a>
+          {{ end }}
+        </nav>
+
+        <nav class="footer-nav footer-social-nav" aria-label="Community links">
+          <h2>Community</h2>
+          <div class="footer-social-list">
+            {{ range hugo.Data.social.links }}
+              <a class="footer-social-link" href="{{ .url }}" {{ if strings.HasPrefix .url "http" }}target="_blank" rel="noopener noreferrer"{{ end }}>
+                {{ with .icon }}
+                  {{ with resources.Get . }}
+                    {{ $socialIcon := . | fingerprint }}
+                    <img class="footer-social-icon" src="{{ $socialIcon.RelPermalink }}" width="{{ $socialIcon.Width }}" height="{{ $socialIcon.Height }}" alt="" aria-hidden="true" loading="lazy" decoding="async">
+                  {{ end }}
+                {{ end }}
+                <span>{{ .name }}</span>
+              </a>
+            {{ end }}
+          </div>
+        </nav>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>Copyright 2026-now by {{ site.Title }}</p>
+      <nav class="footer-legal" aria-label="Legal and contact links">
+        <a href="{{ "contact/" | relURL }}">Contact</a>
+        <a href="{{ "privacy-policy/" | relURL }}">Privacy Policy</a>
+        <a href="{{ "terms-of-use/" | relURL }}">Terms of Use</a>
+      </nav>
+    </div>
+  </div>
+</footer>

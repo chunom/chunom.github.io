@@ -1,0 +1,26 @@
+{{- $src := .Get "src" -}}
+{{- if not $src -}}
+  {{- errorf "post-image shortcode in %s needs a src parameter" .Page.File.Path -}}
+{{- end -}}
+{{- $alt := .Get "alt" | default "" -}}
+{{- $caption := .Get "caption" -}}
+{{- $class := .Get "class" -}}
+{{- $cleanSrc := strings.TrimPrefix "/" $src -}}
+{{- $image := .Page.Resources.GetMatch $src -}}
+{{- if not $image -}}
+  {{- $image = resources.Get $cleanSrc -}}
+{{- end -}}
+<figure class="post-image{{ with $class }} {{ . }}{{ end }}">
+  {{- if strings.HasPrefix $src "http" -}}
+    <img src="{{ $src }}" alt="{{ $alt }}" loading="lazy" decoding="async">
+  {{- else if $image -}}
+    {{- $small := $image.Fit "640x webp q78" | fingerprint -}}
+    {{- $large := $image.Fit "1200x webp q82" | fingerprint -}}
+    <img src="{{ $large.RelPermalink }}" srcset="{{ $small.RelPermalink }} {{ $small.Width }}w, {{ $large.RelPermalink }} {{ $large.Width }}w" sizes="(min-width: 820px) 780px, calc(100vw - 2rem)" width="{{ $large.Width }}" height="{{ $large.Height }}" alt="{{ $alt }}" loading="lazy" decoding="async">
+  {{- else -}}
+    <img src="{{ $src | relURL }}" alt="{{ $alt }}" loading="lazy" decoding="async">
+  {{- end -}}
+  {{- with $caption }}
+    <figcaption>{{ . | markdownify }}</figcaption>
+  {{- end }}
+</figure>

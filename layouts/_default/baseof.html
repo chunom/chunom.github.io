@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="{{ site.Language.Locale | default "en-US" }}">
+  <head>
+    {{ partial "head.html" . }}
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    {{ partial "header.html" . }}
+    <main id="main">
+      {{ block "main" . }}{{ end }}
+    </main>
+    {{ partial "footer.html" . }}
+    <button class="back-to-top" type="button" aria-label="Back to top" data-back-to-top hidden>
+      <span aria-hidden="true">&#8593;</span>
+    </button>
+    {{ $main := resources.Get "js/main.js" | minify | fingerprint }}
+    <script src="{{ $main.RelPermalink }}" integrity="{{ $main.Data.Integrity }}" defer></script>
+    {{ block "scripts" . }}{{ end }}
+  </body>
+</html>

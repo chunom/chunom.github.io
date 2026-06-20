@@ -1,0 +1,40 @@
+{{ define "main" }}
+<section class="page-hero page-hero-small">
+  <div class="container narrow reveal">
+    {{ with .Params.kicker }}<p class="eyebrow">{{ . }}</p>{{ end }}
+    <h1>{{ .Title }}</h1>
+    {{ with .Params.summary }}<p class="page-lede">{{ . }}</p>{{ end }}
+  </div>
+</section>
+
+{{ with .Content }}
+<section class="section article-section">
+  <div class="container narrow article-body reveal">
+    {{ . }}
+  </div>
+</section>
+{{ end }}
+
+{{ if .Pages }}
+<section class="section">
+  <div class="container">
+    <div class="card-grid three{{ if eq .Section "posts" }} post-grid{{ end }}">
+      {{ range .Paginator.Pages }}
+      <article class="post-card reveal">
+        {{ $post := . }}
+        {{ $thumbnail := partial "post-thumbnail.html" (dict "page" . "class" "post-card-image") }}
+        {{ with $thumbnail }}
+          <a class="post-card-media" href="{{ $post.RelPermalink }}" aria-hidden="true" tabindex="-1">{{ . | safeHTML }}</a>
+        {{ end }}
+        {{ partial "post-meta.html" . }}
+        <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+        <p>{{ .Summary | plainify }}</p>
+        <a class="text-link" href="{{ .RelPermalink }}">Read article</a>
+      </article>
+      {{ end }}
+    </div>
+    {{ template "_internal/pagination.html" . }}
+  </div>
+</section>
+{{ end }}
+{{ end }}

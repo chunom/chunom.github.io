@@ -1,0 +1,14 @@
+{{ define "main" }}
+<section class="page-hero not-found">
+  <div class="container narrow reveal">
+    <p class="eyebrow">404</p>
+    <h1>Page not found</h1>
+    <p class="page-lede">The page may have moved, or the link may need updating.</p>
+    <div class="button-row">
+      <a class="button primary" href="{{ site.Home.RelPermalink }}">Go Home</a>
+      <a class="button secondary" href="{{ "search/" | relURL }}">Search Site</a>
+    </div>
+  </div>
+</section>
+{{ end }}
+

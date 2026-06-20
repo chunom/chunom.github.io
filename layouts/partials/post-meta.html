@@ -1,0 +1,7 @@
+{{- $readingTime := .ReadingTime -}}
+<p class="post-meta">
+  {{- if not .Date.IsZero -}}
+    <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time>
+  {{- end -}}
+  <span>{{ $readingTime }} min read</span>
+</p>

@@ -1,0 +1,28 @@
+{{- $items := slice -}}
+{{- range where site.RegularPages "Section" "posts" -}}
+    {{- $items = $items | append (dict
+      "title" .Title
+      "summary" (.Params.summary | default .Summary | plainify)
+      "content" (.Plain | plainify)
+      "url" .RelPermalink
+      "type" "post"
+      "scope" "post"
+      "tags" (.Params.tags | default slice)
+    ) -}}
+{{- end -}}
+{{- range hugo.Data.resources.categories -}}
+  {{- $category := .title -}}
+  {{- $anchor := .id -}}
+  {{- range .items -}}
+    {{- $items = $items | append (dict
+      "title" .title
+      "summary" .description
+      "content" (printf "%s %s %s" $category .title .description)
+      "url" (printf "resources/#%s" $anchor | relURL)
+      "type" "resource"
+      "scope" "resource"
+      "tags" (slice $category)
+    ) -}}
+  {{- end -}}
+{{- end -}}
+{{- $items | jsonify -}}
