@@ -2,6 +2,7 @@
 title: "Getting started with Chữ Nôm"
 date: 2026-06-19T00:00:00+07:00
 slug: "getting-started-with-chu-nom"
+draft: true
 summary: "A practical starting path for new learners who want to approach Chữ Nôm without getting lost in variant forms."
 thumbnail: "images/posts/getting-start/image1.jpg"
 thumbnail_alt: ""

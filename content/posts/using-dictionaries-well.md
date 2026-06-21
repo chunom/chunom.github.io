@@ -2,6 +2,7 @@
 title: "Using dictionaries without losing context"
 date: 2026-06-18T00:00:00+07:00
 summary: "Dictionary lookup is essential, but Chữ Nôm readings still need manuscript, genre, and sentence context."
+draft: true
 thumbnail: "images/posts/using-dictionaries/image1.jpg"
 thumbnail_alt: ""
 tags:
