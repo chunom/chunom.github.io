@@ -2,20 +2,20 @@
   "categories": [
     {
       "id": "fonts",
-      "title": "Font downloads",
-      "description": "Install Chữ Nôm-capable fonts before reading older texts, rare characters, and CJK Extension glyphs.",
+      "title": "Fonts",
+      "description": "Install Chữ-Nôm-capable fonts so you're able to read ancient texts",
       "items": [
         {
-          "title": "Chunom.org Fonts for Chữ Nôm",
+          "title": "Chunom.org",
           "url": "https://chunom.org/pages/fonts/",
-          "description": "A curated list of free CJKV fonts with Chữ Nôm coverage, including guidance on combining fonts for broader character support.",
+          "description": "Free CJKV fonts with Hán Nôm support",
           "action": "Open font downloads",
           "placeholder": false
         },
         {
           "title": "Noto CJK Fonts",
           "url": "https://github.com/notofonts/noto-cjk/releases",
-          "description": "Official Noto Sans CJK and Noto Serif CJK releases. Useful as modern fallback fonts for broad CJK coverage.",
+          "description": "Fonts with broad CJK coverage",
           "action": "Download from GitHub",
           "placeholder": false
         },
@@ -31,56 +31,111 @@
     {
       "id": "dictionaries",
       "title": "Dictionaries",
-      "description": "Lookup tools for checking readings, variants, and historical attestations.",
+      "description": "Find the definition of Nôm characters",
       "items": [
         {
-          "title": "Nôm Foundation Lookup Tool",
+          "title": "VNPF Lookup Tool",
           "url": "https://nomfoundation.org/nom-tools/Nom-Lookup-Tool",
-          "description": "A practical starting point for looking up Chữ Nôm characters and readings.",
+          "description": "Find readings and English definitions for _Nom_ characters easily",
           "placeholder": false
         },
         {
-          "title": "Tự Điển Chữ Nôm Dẫn Giải",
+          "title": "Dictionary of Nôm Characters with Excerpts",
           "url": "https://chunom.org/pages/tdchunom.html",
-          "description": "An online dictionary interface for Chữ Nôm learners and researchers.",
+          "description": "An image-based dictionary interface for Chữ Nôm learners and researchers",
+          "placeholder": false
+        },
+        {
+          "title": "Dictionnaire Annamite-Français",
+          "url": "https://chunom.org/pages/bonet/#1",
+          "description": "A colonial Vietnamese-French dictionary",
           "placeholder": false
         }
       ]
     },
     {
       "id": "archives",
-      "title": "Digital archives",
-      "description": "Collections that help learners see Chữ Nôm in manuscripts, printed books, and scholarly contexts.",
+      "title": "Archives",
+      "description": "Collections of ancient books",
       "items": [
         {
-          "title": "Nôm Foundation Digital Library",
-          "url": "https://nomfoundation.org/",
-          "description": "A gateway to digitized Hán-Nôm materials and preservation work.",
+          "title": "Vietnamese Nom Presevation Foundation's Digital Library",
+          "url": "https://lib.nomfoundation.org/collection/",
+          "description": "Read scanned Hán Nôm texts for free",
           "placeholder": false
         },
         {
-          "title": "Columbia Hán-Nôm Special Collection",
-          "url": "https://library.columbia.edu/collections/han-nom.html",
-          "description": "A research library collection focused on Vietnamese Hán-Nôm texts.",
+          "title": "Hán Nôm Sino Vietnamese Special Collection",
+          "url": "https://dlc.library.columbia.edu/npf_vietnamese",
+          "description": "A research library of texts by Columbia University",
           "placeholder": false
         }
       ]
     },
     {
       "id": "guides",
-      "title": "Learning guides",
-      "description": "Background reading for understanding the writing system and building study habits.",
+      "title": "Guides",
+      "description": "Webpages where you can learn more about the Demotic script",
       "items": [
         {
-          "title": "Omniglot: Chữ Nôm",
+          "title": "Omniglot article",
           "url": "https://www.omniglot.com/writing/chunom.htm",
-          "description": "A concise overview of the script with examples and external references.",
+          "description": "A brief summary of Chu Nom's history",
           "placeholder": false
         },
         {
           "title": "About Chữ Nôm",
           "url": "/about/",
-          "description": "A beginner-friendly internal overview of the script, its background, and why it matters.",
+          "description": "An introduction to this website",
+          "placeholder": false
+        },
+        {
+          "title": "East Asian Writing Systems: Introduction to the Vietnamese Writing System",
+          "url": "http://www.cjvlang.com/Writing/writviet.html",
+          "description": "Like the name says, it's a guide to reading Vietnamese. Also talks a bit about Nom",
+          "placeholder": false
+        },
+		{
+          "title": "Chữ Nôm lessons",
+          "url": "https://web.archive.org/web/20090918131655/http://nom.ghoxy.com/index.php?surrogates=no",
+          "description": "An archived digital textbook with lessons in _Nôm_",
+          "placeholder": false
+        }
+      ]
+    },
+    {
+      "id": "anki",
+      "title": "Flashcards",
+      "description": "Decks of flashcards meant to be used with the spaced repetition software Anki",
+      "items": [
+        {
+          "title": "Hán văn deck",
+          "url": "https://ankiweb.net/shared/info/809873246",
+          "description": "Learn Classical Chinese with Hán-Việt readings",
+          "placeholder": false
+        },
+        {
+          "title": "Chunom.org Anki deck",
+          "url": "https://ankiweb.net/shared/info/307896530",
+          "description": "A deck comprised of data scraped from Chunom.org",
+          "placeholder": false
+        },
+        {
+          "title": "Xefjord's Complete Northern Vietnamese",
+          "url": "https://ankiweb.net/shared/info/587263041",
+          "description": "Contains Nôm characters",
+          "placeholder": false
+        },
+        {
+          "title": "Glossika Southern Vietnamese Sentences",
+          "url": "https://ankiweb.net/shared/info/1525856330",
+          "description": "Learn Chữ Nôm through phrases",
+          "placeholder": false
+        },
+        {
+          "title": "Kebuhcah's Chu Nom Deck",
+          "url": "https://github.com/kebuhcah/anki",
+          "description": "Built following the Uy Ban Phuc Sinh Han Nom Viet Nam's standard",
           "placeholder": false
         }
       ]
