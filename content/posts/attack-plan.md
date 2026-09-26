@@ -1,5 +1,6 @@
 ---
 draft: true
+unlisted: true
 ---
 A designated attack plan for learning Chu Nom I intend on going through
 
