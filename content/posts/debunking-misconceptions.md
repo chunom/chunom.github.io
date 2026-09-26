@@ -2,7 +2,7 @@
 title: "Debunking Common False Claims About the Sino-Nom Writing System"
 date: 2026-06-22T00:00:00+07:00
 slug: "debunking-misconceptions"
-draft: false
+draft: true
 summary: "Many people get the wrong idea from Sino-Nom writing and texts"
 thumbnail: "images/posts/debunking-misconceptions/image1.jpg"
 thumbnail_alt: ""

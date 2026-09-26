@@ -1,4 +1,6 @@
-
+---
+draft: true
+---
 A designated attack plan for learning Chu Nom I intend on going through
 
 Hey there. I am [Chatterine Snuggles](https://linktr.ee/chatterine), one of the people behind this blog. I took the decision to learn demotic Vietnamese writing, better known as Chu Nom (𡨸喃, literally "Southern characters"). [To quote the Nôm Foundation:](https://nomfoundation.org/nom-script/What-is-Nom-?uiLang=en)
